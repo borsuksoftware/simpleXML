@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple XML - Borsuk Software</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/simpleXML.js"></script>
+    <link rel="stylesheet" href="css/simpleXML.css" />
+    <script language="javascript">
+        $(document).ready(function () {
+            var xml = "<description><of>Hello</of><og /><blob> </blob><!--  Comment here --><![CDATA[sdfsdf]]><childNode><bob>fd<bob2></bob2><bob21 /></bob></childNode><!--Second Comment--></description>";
+            try {
+                $("#simpleUseCase").empty().simpleXML({ xmlString: xml });
+            } catch (e) {
+                $("#simpleUseCase").empty().append("Exception caught running plugin : " + ex);
+                alert(e);
+            }
+
+            $("#dynamicXML-process").click(function () {
+                try {
+                    $("#dynamicXML-output").empty();
+                    var xml = $("#dynamicXML").val();
+                    $("#dynamicXML-output").simpleXML({ xmlString: xml });
+
+                } catch (ex) {
+                    alert("Unable to process XML: " + ex);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>Simple XML</h1>
+
+    <h2>Simple Use-case - text</h2>
+
+    <p>
+        <b>Input</b>
+        <pre>var xml = &quot;&lt;description&gt;&lt;of&gt;Hello&lt;/of&gt;&lt;og /&gt;&lt;blob&gt; &lt;/blob&gt;&lt;!--  Comment here --&gt;&lt;![CDATA[sdfsdf]]&gt;&lt;childNode&gt;&lt;bob&gt;fd&lt;bob2&gt;&lt;/bob2&gt;&lt;bob21 /&gt;&lt;/bob&gt;&lt;/childNode&gt;&lt;!--Second Comment--&gt;&lt;/description&gt;&quot;;
+$("#simpleUseCase").empty().simpleXML({ xmlString: xml });</pre>
+
+        <b>Output</b>
+        <div id="simpleUseCase" ></div>
+    </p>
+
+    <h2>Test</h2>
+
+    <textarea id="dynamicXML" style="width: 700px;height: 400px;"></textarea>
+    <button id="dynamicXML-process" >Run plugin</button><br />
+    <div id="dynamicXML-output"></div>
+
+</body>
+</html>
