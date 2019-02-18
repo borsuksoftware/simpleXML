@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/simpleXML.css" />
     <script language="javascript">
         $(document).ready(function () {
-            var xml = "<description><of>Hello</of><og /><blob> </blob><!--  Comment here --><![CDATA[sdfsdf]]><childNode><bob>fd<bob2></bob2><bob21 /></bob></childNode><!--Second Comment--></description>";
+            var xml = "<description attr1='val1' attr='val2' attr3='val3'><of attr1='val1' attr='val2' attr3='val3'>Hello</of><og /><blob> </blob><!--  Comment here --><![CDATA[sdfsdf]]><childNode><bob>fd<bob2></bob2><bob21 /></bob></childNode><!--Second Comment--></description>";
             try {
                 $("#simpleUseCase").empty().simpleXML({ xmlString: xml });
             } catch (e) {

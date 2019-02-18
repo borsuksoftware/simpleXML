@@ -96,7 +96,15 @@
                         parent.appendChild(expanderHeader);
 
                     // Handle attributes
-
+					var attributes = xml.attributes;
+					for( var attrIdx = 0 ; attrIdx < attributes.length ; attrIdx++ ) {
+						expanderHeader.appendChild( makeSpan( " "));
+						expanderHeader.appendChild( makeSpan( attributes [attrIdx].name, "simpleXML-attrName"));
+						expanderHeader.appendChild( makeSpan( '="' ));
+						expanderHeader.appendChild( makeSpan( attributes [attrIdx].value, "simpleXML-attrValue" ));
+						expanderHeader.appendChild( makeSpan( '"' ));
+					}
+					
                     // Handle child nodes
                     if (hasChildNodes) {
 
@@ -136,8 +144,10 @@
 
             case 3: // text
                 {
-                    parent.appendChild(makeSpan("", "simpleXML-expander"));
-                    parent.appendChild(makeSpan(xml.nodeValue));
+					if( xml.nodeValue.trim() !== "" ) {
+						parent.appendChild(makeSpan("", "simpleXML-expander"));
+						parent.appendChild(makeSpan(xml.nodeValue));
+					}
                 }
                 break;
 
