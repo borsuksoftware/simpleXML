@@ -39,7 +39,7 @@
 
     <p>
         <b>Input</b>
-        <pre>var xml = &quot;&lt;description&gt;&lt;of&gt;Hello&lt;/of&gt;&lt;og /&gt;&lt;blob&gt; &lt;/blob&gt;&lt;!--  Comment here --&gt;&lt;![CDATA[sdfsdf]]&gt;&lt;childNode&gt;&lt;bob&gt;fd&lt;bob2&gt;&lt;/bob2&gt;&lt;bob21 /&gt;&lt;/bob&gt;&lt;/childNode&gt;&lt;!--Second Comment--&gt;&lt;/description&gt;&quot;;
+        <pre>var xml = &quot;&lt;description attr1='val1' attr='val2' attr3='val3'&gt;&lt;of&gt;Hello&lt;/of&gt;&lt;og /&gt;&lt;blob&gt; &lt;/blob&gt;&lt;!--  Comment here --&gt;&lt;![CDATA[sdfsdf]]&gt;&lt;childNode&gt;&lt;bob&gt;fd&lt;bob2&gt;&lt;/bob2&gt;&lt;bob21 /&gt;&lt;/bob&gt;&lt;/childNode&gt;&lt;!--Second Comment--&gt;&lt;/description&gt;&quot;;
 $("#simpleUseCase").empty().simpleXML({ xmlString: xml });</pre>
 
         <b>Output</b>
